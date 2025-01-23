@@ -1,0 +1,130 @@
+
+
+body{
+  color: white;
+  font-family: "Lexend Deca", sans-serif;
+  background-color: black;
+  padding: 10px;
+}
+
+
+#main{
+  margin-top: 50px;
+  max-width: 1400px;
+  border: solid 3px #5e5efb;
+  padding: 25px;
+  padding-top: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(66, 66, 66);
+  border-radius: 15px;
+  max-width: fit-content;
+}
+
+
+#replay{
+  text-decoration: none;
+  color: white;
+}
+
+#replay1{
+  text-decoration: none;
+  color: white;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  /* border: solid 2px #5e5efb;
+  background-color: white; */
+  color: rgb(66, 66, 66);
+  transition: all 0.3s ease;
+}
+
+
+
+h1{
+  color:#5e5efb;
+  font-size: 4em;
+  text-align: center;
+}
+
+
+
+
+img{
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+button,
+select{
+font-size: 20px;
+border-radius: 5px;
+font-family: "Lexend Deca", sans-serif;
+background-color: rgb(66, 66, 66);;
+padding: 5px;
+color: white;
+margin: 5px;
+}
+
+
+button:hover{
+  border: solid 2px #5e5efb;
+  background-color: white;
+  color: rgb(66, 66, 66);
+  transition: all 0.3s ease;
+}
+
+
+#installButton{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+label{
+font-size: 20px;
+color: white;
+margin-right: 1px;
+}
+
+
+#selectors{
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+p{
+  color:white;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+
+#slct,
+#slct1,
+#slct2{
+  display: inline-block;
+}
+
+
+@media (max-width: 730px) {
+
+
+  #slct{
+    display: block;
+  }
+}

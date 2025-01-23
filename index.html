@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Quiz App</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- include an external style sheet -->
+    <link rel="stylesheet" href="style.css">  
+   
+    <!-- include an external JavaScript file -->
+    <script src="script.js"></script>
+
+    <link rel="manifest" href="manifest.json">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+
+
+  <body>
+
+
+    <h1>Quiz App</h1>
+
+
+    <div id="selectors">
+
+<div id="slct">
+  <label for="difficulty">Select Difficulty</label>
+  <select name="Select difficulty" id="difficulty" onchange="changeDif(value)">
+    <option value="">Any</option>
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+  </select>
+</div>
+
+<div id="slct1">
+  <label for="type">Select Type</label>
+  <select name="Select Type" id="type" onchange="changeType(value)">
+    <option value="">Any</option>
+    <option value="boolean">True or False</option>
+    <option value="multiple">Multiple Choice</option>
+  </select>
+</div>
+
+<div id="slct2">
+  <label for="category">Select Category</label>
+  <select name="Select Category" id="category" onchange="changeCat(value)">
+    <option value="">Any</option>
+    <option value="9">General Knowledge</option>
+    <option value="10">Books</option>
+    <option value="11">Film</option>
+    <option value="12">Music</option>
+    <option value="13">Theatre</option>
+    <option value="14">TV</option>
+    <option value="15">Video Games</option>
+    <option value="16">Board Games</option>
+    <option value="17">Science and Nature</option>
+    <option value="18">Computers</option>
+    <option value="19">Math</option>
+    <option value="20">Mythology</option>
+    <option value="21">Sports</option>
+    <option value="22">Geography</option>
+    <option value="23">History</option>
+    <option value="24">Politics</option>
+    <option value="25">Art</option>
+    <option value="26">Celebrities</option>
+    <option value="27">Animals</option>
+    <option value="28">Vehicles</option>
+    <option value="29">Comics</option>
+    <option value="30">Gadgets</option>
+    <option value="31">Anime</option>
+    <option value="32">Cartoons and Animation</option>
+  </select>
+ </div>
+ <button id="replay"><a href="index.html" id="replay1">Replay</a></button>
+  <button id="fetch" onclick="fetchUrl()">Start</button>
+</div>
+<button id="installButton" style="display: none;">Install App</button>
+<p id="score">Score: </p>
+  <div id="main">
+    <p id="question"></p>
+    <img src="images/onepixel.png" alt="" id="quizImage">
+    
+</div>
+
+
+  </body>
+ 
+</html>
