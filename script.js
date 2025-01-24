@@ -31,6 +31,7 @@ if ('serviceWorker' in navigator) {
       console.log('Service Worker registered with scope:', registration.scope);
     }, function(error) {
       console.log('Service Worker registration failed:', error);
+      alert("Fetch failed - you are either offline or making too many requests") 
     });
   });
 } 
