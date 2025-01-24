@@ -30,8 +30,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(function(registration) {
       console.log('Service Worker registered with scope:', registration.scope);
     }, function(error) {
-      console.log('Service Worker registration failed:', error);
-      alert("Fetch failed - you are either offline or making too many requests") 
+      console.log('Service Worker registration failed:', error); 
     });
   });
 } 
@@ -93,6 +92,7 @@ async function fetchUrl(){
       document.getElementById("score").innerHTML="Score: " + score
 } catch (error) {
     console.error('Error fetching activity:', error);
+    alert("Fetch failed - you are either offline or making too many requests")
   }
      }
 
