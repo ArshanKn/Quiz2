@@ -36,7 +36,7 @@
     "lang": "en-GB",
     "name": "Quiz App",
     "short_name": "Quiz",
-    "start_url": "https://arshankn.github.io/Quiz2/",
-    "scope": "https://arshankn.github.io/Quiz2/",
+    "start_url": "/Quiz2/",
+    "scope": "/Quiz2/",
     "description": "Play a fun quiz game when your bored"
   }
