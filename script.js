@@ -1,7 +1,5 @@
 
 
-//all add event listener code is from https://stackoverflow.com/questions/68564754/is-there-a-way-to-make-my-next-button-displaying-questions-every-time-a-user-c
-
 
 let apiURL="https://opentdb.com/api.php?amount=10"
 
@@ -11,7 +9,7 @@ let apiURL="https://opentdb.com/api.php?amount=10"
 let apiKey="nQ4UTeejFoVXq1qvyjKcFNQ8euGDeDYxjy0fxZNHgekPT5WyzaF60yTy"
 
 
-
+var count = 11;
 
  let num=0
 let score=0
@@ -20,7 +18,6 @@ let score=0
 window.onload = function(){
   document.getElementById("main").style.display="none"
    document.getElementById("score").style.display="none"
-      //  document.getElementById("replay").style.display="none"
 }
 
 
@@ -30,7 +27,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(function(registration) {
       console.log('Service Worker registered with scope:', registration.scope);
     }, function(error) {
-      console.log('Service Worker registration failed:', error); 
+      console.log('Service Worker registration failed:', error);
     });
   });
 } 
@@ -87,17 +84,39 @@ async function fetchUrl(){
     console.log(data)
     showFunction(data)
       fetchImage(data)
+      startTimer()
       document.getElementById("selectors").style.display="none"
        document.getElementById("score").style.display="block"
       document.getElementById("score").innerHTML="Score: " + score
 } catch (error) {
     console.error('Error fetching activity:', error);
-    alert("Fetch failed - you are either offline or making too many requests")
+    alert("Fetch failed - you are either offline or making too many requests") 
   }
      }
 
+     //set and make timer
+//https://stackoverflow.com/questions/44314897/javascript-timer-for-a-quiz
+function startTimer(){
+
+var interval = setInterval(function(){
+  document.getElementById('timer').innerHTML=count + " seconds left";
+  count--
+  document.getElementById('timer').innerHTML=count + " seconds left";
+  if (count <= 0){
+    clearInterval(interval);
+    document.getElementById('timer').style.display="none"
+    document.getElementById('main').innerHTML="<p>Out of time <br> <a href='index.html' id='replay' style='margin-left: 30px'>Replay</a><p>"
+    document.getElementById('main').style.height="85px"
 
 
+  }
+
+  if(num>9){
+    clearInterval(interval)
+     document.getElementById('timer').style.display="none"
+  }
+}, 1000);
+}
 
 //How to work Pexels API with javascript
 // https://medium.com/star-gazers/how-to-work-pexels-api-with-javascript-9cda16bbece9
@@ -146,8 +165,11 @@ async function fetchUrl(){
 function showFunction(data){
   var correctAnswer = data.results[num].correct_answer
    document.getElementById("question").innerHTML+=data.results[num].question + "<br>"
+   //shuffle the answers in a random order
+      // https://coureywong.medium.com/how-to-shuffle-an-array-of-items-in-javascript-39b9efe4b567
         const answers = [...data.results[num].incorrect_answers, data.results[num].correct_answer];
         answers.sort(() => Math.random() - 0.5)
+        //make buttons for each answer
     //https://medium.com/@codepicker57/building-an-interactive-quiz-with-html-css-and-javascript-efe9bd8129e2
         answers.forEach(answers => {
           const button = document.createElement("button")
@@ -155,6 +177,7 @@ function showFunction(data){
           document.getElementById("question").appendChild(button)
           button.addEventListener("click",(e) => getAnswer1(e, data, correctAnswer));
           button.style.marginTop="20px"
+          count=11
         });
     console.log(num)
 }
@@ -183,6 +206,7 @@ function getAnswer1(e, data, correctAnswer){
   }else{
     document.getElementById("main").style.backgroundColor="red"
   }  
+  //make background flash the color for 300 ms
   //https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
   setTimeout(() => {
     document.getElementById("main").style.backgroundColor="rgb(66, 66, 66)"
@@ -204,7 +228,6 @@ function getAnswer1(e, data, correctAnswer){
     document.getElementById("main").style.backgroundColor="rgb(66, 66, 66)"
     document.getElementById("main").style.height="120px"
     document.getElementById("score").style.display="none"
-      // document.getElementById("replay").style.display="block"
 
 
   }
