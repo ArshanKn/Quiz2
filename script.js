@@ -199,7 +199,7 @@ function getAnswer1(e, data, correctAnswer){
       document.getElementById("main").style.backgroundColor="red"
     }  
     document.getElementById("quizImage").src=""
-    document.getElementById("main").innerHTML="<p>Thanks for playing <br> Score: " + score + "</p> <br> <a href='index.html' id='replay' >Replay</a>"
+    document.getElementById("main").innerHTML="<p>Thanks for playing <br> Score: " + score + "<a href='index.html' id='replay'>Replay</a></p>"
     document.getElementById("main").style.backgroundColor="rgb(66, 66, 66)"
     document.getElementById("main").style.height="120px"
     document.getElementById("score").style.display="none"
@@ -207,5 +207,5 @@ function getAnswer1(e, data, correctAnswer){
 
 
   }
-  
+
 }
